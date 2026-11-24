@@ -293,8 +293,30 @@ $("#form").addEventListener("submit", (e) => {
     `💳 ${f.get("pago")}`,
     f.get("notas") ? `📝 ${f.get("notas")}` : null,
   ].filter((x) => x !== null).join("\n");
-  window.open(`https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`, "_blank");
+  const url = `https://wa.me/${CONFIG.whatsapp}?text=${encodeURIComponent(msg)}`;
+  window.open(url, "_blank");
+  cerrarHoja(true);
+  $("#gracias-reabrir").href = url;
+  $("#gracias").hidden = false;
+  document.body.style.overflow = "hidden";
 });
+$("#gracias-ok").onclick = () => {
+  $("#gracias").hidden = true;
+  document.body.style.overflow = "";
+  carrito = {}; guardar(); actualizarBoton();
+  window.scrollTo({ top: 0 });
+};
+
+// ============ Intro con la carita (una vez por visita) ============
+(function intro() {
+  const el = $("#intro");
+  let visto = false;
+  try { visto = sessionStorage.getItem("brun-intro") === "1"; sessionStorage.setItem("brun-intro", "1"); } catch {}
+  if (visto || matchMedia("(prefers-reduced-motion: reduce)").matches) { el.remove(); return; }
+  const salir = () => { el.classList.add("fuera"); setTimeout(() => el.remove(), 450); };
+  el.addEventListener("click", salir);
+  setTimeout(salir, 2200);
+})();
 
 // ============ Quiz: ¿Qué alfajor Brün sos? ============
 const PREGUNTAS = [

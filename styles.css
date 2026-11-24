@@ -195,7 +195,7 @@ h1, h2, h3 { margin: 0; }
 .pasos b { font-family: var(--display); font-weight: 400; color: var(--bordo); font-size: 1.5rem; font-variation-settings: "SOFT" 100; }
 
 /* ===== Pie ===== */
-.pie { background: var(--bordo); color: var(--crema); padding: 44px 20px 120px; }
+.pie { background: var(--bordo); color: var(--crema); padding: 10px 20px 120px; }
 .pie > * { max-width: 620px; margin-left: auto; margin-right: auto; }
 .pie .logo { width: 160px; border-radius: 14px; margin: 0 0 22px; }
 .pie h2 { color: var(--crema); font-size: clamp(2.8rem, 12vw, 4rem); margin-bottom: 14px; }
@@ -315,6 +315,42 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
   max-width: calc(100% - 32px); text-align: center;
 }
 .toast.ver { translate: -50% 0; }
+
+
+/* ===== Carita (la ü del logo) con colores que cambian ===== */
+.carita { width: 100%; height: auto; display: block; }
+.carita circle { fill: var(--c-fg); }
+.carita path { stroke: var(--c-fg); }
+.ciclo { --c-bg: var(--bordo); --c-fg: var(--crema); background: var(--c-bg); color: var(--c-fg); animation: ciclo 1.2s steps(1) infinite; }
+@keyframes ciclo {
+  0%   { --c-bg: var(--bordo);   --c-fg: var(--crema); }
+  33%  { --c-bg: var(--celeste); --c-fg: var(--bordo); }
+  66%  { --c-bg: var(--crema);   --c-fg: var(--bordo); }
+}
+@property --c-bg { syntax: "<color>"; inherits: true; initial-value: #7d1a24; }
+@property --c-fg { syntax: "<color>"; inherits: true; initial-value: #ffe5b7; }
+
+.intro {
+  position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; cursor: pointer;
+  transition: opacity .4s ease, visibility .4s;
+}
+.intro .carita { width: min(50vw, 280px); animation: entrar .9s cubic-bezier(.2,1.4,.4,1) both, rebote 1.6s ease-in-out .9s infinite; }
+@keyframes entrar { from { transform: translateY(60vh); } }
+.intro.fuera { opacity: 0; visibility: hidden; }
+@keyframes rebote { 50% { transform: translateY(-8px) rotate(-4deg); } }
+
+.banda { display: grid; place-items: center; padding: 56px 20px; }
+.banda .carita { width: 150px; }
+
+.gracias {
+  position: fixed; inset: 0; z-index: 90; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 16px; padding: 24px; text-align: center; animation: ciclo 1.2s steps(1) infinite, aparecer .3s;
+}
+.gracias .carita { width: min(42vw, 220px); }
+.gracias h2 { color: var(--c-fg); font-size: clamp(3.4rem, 16vw, 5.5rem); }
+.gracias p { max-width: 340px; font-size: 1.15rem; font-weight: 600; margin: 0; }
+.gracias .btn { background: var(--c-fg); color: var(--c-bg); }
+.gracias a { color: inherit; }
 
 /* Aparición al hacer scroll */
 .revelar { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }

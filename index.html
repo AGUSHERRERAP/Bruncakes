@@ -14,6 +14,9 @@
 </head>
 <body>
 
+  <!-- INTRO con la carita -->
+  <div class="intro ciclo" id="intro" aria-hidden="true"><svg class="carita" viewBox="0 0 200 210" aria-hidden="true"><circle cx="66" cy="34" r="19"/><circle cx="136" cy="26" r="20"/><path d="M52 92 C 50 150, 70 188, 104 188 C 140 188, 154 140, 150 84" fill="none" stroke-width="40" stroke-linecap="round"/></svg></div>
+
   <!-- PORTADA -->
   <header class="hero">
     <div class="hero-texto">
@@ -56,6 +59,7 @@
     </ol>
   </section>
 
+  <div class="banda ciclo" aria-hidden="true"><svg class="carita" viewBox="0 0 200 210" aria-hidden="true"><circle cx="66" cy="34" r="19"/><circle cx="136" cy="26" r="20"/><path d="M52 92 C 50 150, 70 188, 104 188 C 140 188, 154 140, 150 84" fill="none" stroke-width="40" stroke-linecap="round"/></svg></div>
   <footer class="pie">
     <img class="logo" src="img/logo-celeste.jpg" alt="brün cakes">
     <h2 class="display">¡Gracias por elegirnos!</h2>
@@ -112,6 +116,15 @@
       </button>
       <p class="chiquito centro">Se abre WhatsApp con tu pedido listo. Solo tocás enviar.</p>
     </form>
+  </section>
+
+  <!-- GRACIAS -->
+  <section class="gracias ciclo" id="gracias" role="dialog" aria-modal="true" aria-labelledby="gracias-titulo" hidden>
+    <svg class="carita" viewBox="0 0 200 210" aria-hidden="true"><circle cx="66" cy="34" r="19"/><circle cx="136" cy="26" r="20"/><path d="M52 92 C 50 150, 70 188, 104 188 C 140 188, 154 140, 150 84" fill="none" stroke-width="40" stroke-linecap="round"/></svg>
+    <h2 class="display" id="gracias-titulo">¡Gracias!</h2>
+    <p>Se abrió WhatsApp con tu pedido. Tocá <b>enviar</b> y te confirmamos a la brevedad 🤍</p>
+    <button class="btn" id="gracias-ok">Volver</button>
+    <a class="chiquito" id="gracias-reabrir" href="#" target="_blank" rel="noopener">¿No se abrió WhatsApp? Tocá acá</a>
   </section>
 
   <div class="toast" id="toast" role="status" aria-live="polite"></div>
