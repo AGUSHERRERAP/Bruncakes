@@ -51,7 +51,7 @@ function tarjeta(p) {
     ? `<span class="precio-desde">Solo en <b>${porId[p.soloEn].nombre}</b></span>`
     : desde != null ? `<span class="precio-desde">${ops.length > 1 ? "Desde " : ""}<b>${pesos(desde)}</b></span>` : "";
   return `
-    <button class="tarjeta revelar ${p.disponible ? "" : "agotada"}" data-abrir="${p.id}">
+    <button class="tarjeta ${p.disponible ? "" : "agotada"}" data-abrir="${p.id}">
       <span class="pill chica etiqueta">${p.etiqueta}</span>
       ${p.disponible ? `<span class="mas" aria-hidden="true">+</span>` : `<span class="cinta">Agotado por ahora</span>`}
       <h3 class="display">${p.nombre}</h3>
@@ -65,12 +65,12 @@ function renderMenu() {
   const hayIndividualesPronto = PRODUCTOS.some((p) => p.cat === "alfajores" && "unidad" in p && p.unidad == null);
   $("#menu").innerHTML = CATEGORIAS.map((c) => `
     <section class="seccion" id="${c.id}">
-      <div class="seccion-cabecera revelar">
+      <div class="seccion-cabecera">
         <h2 class="display">${c.nombre}</h2>
         <p class="bajada">${c.bajada}</p>
       </div>
       ${c.id === "alfajores" && hayIndividualesPronto ? `
-        <div class="banner-individuales revelar"><span style="font-size:1.8rem">✨</span>
+        <div class="banner-individuales"><span style="font-size:1.8rem">✨</span>
           <div><span class="display">Próximamente</span>Alfajores por unidad. Por ahora, en cajas.</div></div>` : ""}
       <div class="grilla">${PRODUCTOS.filter((p) => p.cat === c.id).map(tarjeta).join("")}</div>
     </section>`).join("");
@@ -89,16 +89,12 @@ const spy = new IntersectionObserver((entradas) => {
   entradas.forEach((en) => {
     if (!en.isIntersecting) return;
     $$("#tabs a").forEach((a) => a.classList.toggle("activa", a.dataset.tab === en.target.id));
-    const activa = $(`#tabs a[data-tab="${en.target.id}"]`);
-    activa && activa.scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+    const activa = $(`#tabs a[data-tab="${en.target.id}"]`), nav = $("#tabs");
+    if (activa) nav.scrollTo({ left: activa.offsetLeft - nav.clientWidth / 2 + activa.clientWidth / 2, behavior: "smooth" });
   });
 }, { rootMargin: "-45% 0px -50% 0px" });
 
 function observarRevelar() {
-  const io = new IntersectionObserver((es) => es.forEach((e) => {
-    if (e.isIntersecting) { e.target.classList.add("visto"); io.unobserve(e.target); }
-  }), { threshold: .12 });
-  $$(".revelar:not(.visto)").forEach((el) => io.observe(el));
   [...CATEGORIAS.map((c) => $("#" + c.id)), $("#quiz")].forEach((s) => s && spy.observe(s));
 }
 
@@ -315,7 +311,7 @@ $("#gracias-ok").onclick = () => {
   if (visto || matchMedia("(prefers-reduced-motion: reduce)").matches) { el.remove(); return; }
   const salir = () => { el.classList.add("fuera"); setTimeout(() => el.remove(), 450); };
   el.addEventListener("click", salir);
-  setTimeout(salir, 2200);
+  setTimeout(salir, 1700);
 })();
 
 // ============ Quiz: ¿Qué alfajor Brün sos? ============
@@ -367,6 +363,14 @@ $("#quiz-cuerpo").addEventListener("click", (e) => {
   const a = e.target.closest("[data-abrir-quiz]");
   if (a) abrirProducto(a.dataset.abrirQuiz);
   if (e.target.closest("[data-reiniciar]")) { quizPaso = 0; votos = {}; renderQuiz(); }
+});
+
+// Scroll suave solo al tocar un link interno
+document.addEventListener("click", (e) => {
+  const link = e.target.closest('a[href^="#"]');
+  if (!link || link.getAttribute("href") === "#") return;
+  const destino = document.querySelector(link.getAttribute("href"));
+  if (destino) { e.preventDefault(); destino.scrollIntoView({ behavior: "smooth" }); }
 });
 
 // ============ Inicio ============

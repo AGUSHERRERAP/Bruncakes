@@ -27,7 +27,7 @@
 
 * { box-sizing: border-box; }
 [hidden] { display: none !important; }
-html { scroll-behavior: smooth; scroll-padding-top: 70px; }
+html { scroll-padding-top: 70px; }
 body {
   margin: 0; font-family: var(--sans); color: var(--texto); background: var(--hueso);
   -webkit-font-smoothing: antialiased; overflow-x: hidden;
@@ -92,8 +92,8 @@ h1, h2, h3 { margin: 0; }
 /* ===== Tabs ===== */
 .tabs {
   position: sticky; top: 0; z-index: 20; display: flex; gap: 8px; overflow-x: auto;
-  padding: 12px 16px; background: color-mix(in srgb, var(--hueso) 92%, transparent);
-  backdrop-filter: blur(8px); scrollbar-width: none;
+  padding: 12px 16px; background: var(--hueso); scrollbar-width: none;
+  box-shadow: 0 6px 12px -10px rgba(94,18,27,.35);
 }
 .tabs::-webkit-scrollbar { display: none; }
 .tabs a {
@@ -181,7 +181,7 @@ h1, h2, h3 { margin: 0; }
 @keyframes pop { from { transform: scale(.4); opacity: 0; } }
 
 /* ===== Cómo pedir ===== */
-.como { background: var(--celeste); padding: 48px 20px; }
+.como { background: var(--crema); padding: 40px 20px; }
 .como > * { max-width: 620px; margin-left: auto; margin-right: auto; }
 .como > .pill { display: flex; width: max-content; margin-left: max(0px, calc((100% - 620px) / 2)); }
 .como h2 { font-size: clamp(3rem, 13vw, 4.4rem); margin: 14px auto 24px; }
@@ -352,12 +352,7 @@ input:focus, select:focus, textarea:focus { outline: none; border-color: var(--b
 .gracias .btn { background: var(--c-fg); color: var(--c-bg); }
 .gracias a { color: inherit; }
 
-/* Aparición al hacer scroll */
-.revelar { opacity: 0; transform: translateY(24px); transition: opacity .6s ease, transform .6s ease; }
-.revelar.visto { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
-  .revelar { opacity: 1; transform: none; }
-  html { scroll-behavior: auto; }
 }
