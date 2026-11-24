@@ -1,0 +1,2 @@
+Subí acá tu fuente GoodDog con el nombre GoodDog.otf (o GoodDog.ttf).
+La página la usa automáticamente en todos los títulos.

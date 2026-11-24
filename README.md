@@ -1,17 +1,18 @@
-# Bruncakes · Pedidos online
+# brün cakes · Pedidos online
 
-Página web donde los clientes eligen productos y te mandan el pedido armado directo a tu WhatsApp.
+Página donde tus clientes eligen productos y te mandan el pedido armado directo a tu WhatsApp (351 800 5221).
 
-## Cómo cambiar productos, precios y disponibilidad
+## Qué tiene
+- Catálogo con fotos, igual que el PDF: alfajores, cajas, tortas y tartas, cookies.
+- Al tocar un producto se abre una ficha para elegir la presentación (x6, x12…) y la cantidad.
+- Carrito con el total, aviso de anticipación (24 h; 48 h si hay tortas) y fecha mínima automática.
+- Botón "Enviar pedido por WhatsApp": abre WhatsApp con el pedido escrito.
+- Test "¿Qué alfajor Brün sos?", "Cómo pedir" y "Nuestra historia".
 
-Todo se edita en **`productos.js`**. Lo podés hacer desde el celular en GitHub (abrí el archivo → ícono del lápiz → "Commit changes"):
-
-- **Tu número:** cambiá `whatsapp` (formato `549` + código de área + número, sin espacios).
-- **Marcar algo como agotado:** poné `disponible: false`. Para volver a ofrecerlo, `disponible: true`.
-- **Cambiar precio:** modificá `precio` (sin puntos ni `$`).
-- **Agregar producto:** copiá una línea `{ id: ..., nombre: ..., ... }` y cambiale los datos (el `id` tiene que ser único).
-- **Foto:** agregá `imagen: "img/nombre.jpg"` y subí la foto a la carpeta `img/`.
-
-## Cómo funciona el pedido
-
-El cliente elige productos → completa nombre, entrega, fecha y pago → toca "Enviar pedido por WhatsApp" → se abre WhatsApp con el mensaje listo para enviarte.
+## Cómo cambiar cosas (todo en `productos.js`)
+- **Agotado:** `disponible: false`. Para volver a ofrecerlo, `disponible: true`.
+- **Precio:** cambiá el número en `opciones` (sin puntos ni `$`).
+- **Empezar a vender individuales:** en el producto, cambiá `unidad: null` por el precio, por ejemplo `unidad: 2300`.
+- **Producto nuevo:** copiá uno parecido, cambiale el `id` (único), nombre, descripción, foto y precios.
+- **Fotos:** van en la carpeta `img/`.
+- **Tipografía GoodDog:** subí `GoodDog.otf` a la carpeta `fonts/`.
