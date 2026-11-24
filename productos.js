@@ -26,8 +26,8 @@ const CONFIG = {
 // ------------------------------------------------------------
 
 const CATEGORIAS = [
-  { id: "alfajores", nombre: "Alfajores", bajada: "Siete variedades, hechas a mano" },
   { id: "cajas", nombre: "Cajas", bajada: "Para regalar o para vos" },
+  { id: "alfajores", nombre: "Alfajores", bajada: "Siete variedades, hechas a mano" },
   { id: "tortas", nombre: "Tortas y tartas", bajada: "24 cm · 15 a 20 porciones" },
   { id: "cookies", nombre: "Cookies", bajada: "Rellenas y bien chewy" },
 ];
