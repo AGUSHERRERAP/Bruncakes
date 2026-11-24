@@ -15,4 +15,4 @@ Página donde tus clientes eligen productos y te mandan el pedido armado directo
 - **Empezar a vender individuales:** en el producto, cambiá `unidad: null` por el precio, por ejemplo `unidad: 2300`.
 - **Producto nuevo:** copiá uno parecido, cambiale el `id` (único), nombre, descripción, foto y precios.
 - **Fotos:** van en la carpeta `img/`.
-- **Tipografía GoodDog:** subí `GoodDog.otf` a la carpeta `fonts/`.
+- **Tipografía:** los títulos usan tu fuente GoodDog (carpeta `fonts/`).

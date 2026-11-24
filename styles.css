@@ -19,7 +19,7 @@
   --texto: #3b2b27;
   --texto-suave: #6f5a54;
   --verde: #1f9d55;
-  --display: "GoodDog", "Fraunces", Georgia, serif;
+  --display: "GoodDog", "Comic Sans MS", cursive;
   --sans: "Figtree", system-ui, -apple-system, sans-serif;
   --radio: 22px;
   --sombra: 0 10px 30px rgba(94, 18, 27, .12);
@@ -35,8 +35,8 @@ body {
 img { display: block; max-width: 100%; }
 button { font: inherit; color: inherit; cursor: pointer; }
 .display {
-  font-family: var(--display); font-weight: 900; color: var(--bordo);
-  font-variation-settings: "SOFT" 100, "WONK" 0; letter-spacing: -.01em; line-height: 1;
+  font-family: var(--display); font-weight: 400; font-synthesis: none; color: var(--bordo);
+  letter-spacing: 0; line-height: .95;
 }
 h1, h2, h3 { margin: 0; }
 
@@ -72,7 +72,7 @@ h1, h2, h3 { margin: 0; }
   padding: 28px 20px 28px; overflow: hidden; display: flex; flex-direction: column;
 }
 .hero .logo { width: 150px; border-radius: 14px; margin-bottom: 26px; }
-.hero h1 { font-size: clamp(2.7rem, 12vw, 5rem); margin-bottom: 18px; }
+.hero h1 { font-size: clamp(3.4rem, 15vw, 6.2rem); margin-bottom: 18px; }
 .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 24px; max-width: 320px; }
 .pills a { background: var(--crema); }
 .hero-texto { position: relative; z-index: 2; }
@@ -106,7 +106,7 @@ h1, h2, h3 { margin: 0; }
 /* ===== Secciones del menú ===== */
 .seccion { padding: 34px 16px 10px; max-width: 1100px; margin: 0 auto; }
 .seccion-cabecera { margin-bottom: 18px; }
-.seccion h2 { font-size: clamp(2.2rem, 9vw, 3.4rem); }
+.seccion h2 { font-size: clamp(2.8rem, 12vw, 4.2rem); }
 .seccion .bajada { margin: 6px 0 0; color: var(--texto-suave); font-weight: 600; }
 
 .grilla { display: grid; gap: 16px; grid-template-columns: repeat(auto-fill, minmax(min(100%, 250px), 1fr)); }
@@ -122,7 +122,7 @@ h1, h2, h3 { margin: 0; }
 .tarjeta .etiqueta { align-self: flex-start; }
 .tarjeta:nth-child(even) .etiqueta { background: var(--crema); }
 .tarjeta:nth-child(odd) .etiqueta { background: var(--celeste); }
-.tarjeta h3 { font-size: 1.9rem; padding-right: 40px; }
+.tarjeta h3 { font-size: 2.3rem; padding-right: 40px; }
 .tarjeta p { margin: 0; color: var(--texto); font-size: .95rem; line-height: 1.45; }
 .tarjeta .foto { width: 72%; margin: 4px -30px -40px auto; }
 .tarjeta:nth-child(odd) .foto { border-color: var(--celeste); }
@@ -157,11 +157,11 @@ h1, h2, h3 { margin: 0; }
   margin: 0 0 16px; padding: 14px 18px; border-radius: 18px; background: var(--bordo); color: var(--crema);
   display: flex; gap: 12px; align-items: center; font-weight: 600; line-height: 1.35;
 }
-.banner-individuales .display { color: var(--crema); font-size: 1.25rem; display: block; }
+.banner-individuales .display { color: var(--crema); font-size: 1.6rem; display: block; }
 
 /* ===== Quiz ===== */
 .quiz { background: var(--crema); padding: 48px 20px; margin-top: 40px; text-align: center; }
-.quiz h2 { font-size: clamp(2.4rem, 10vw, 3.6rem); margin: 14px 0 22px; }
+.quiz h2 { font-size: clamp(3rem, 13vw, 4.4rem); margin: 14px 0 22px; }
 #quiz-cuerpo { max-width: 520px; margin: 0 auto; }
 .quiz-pregunta { font-weight: 700; font-size: 1.15rem; margin-bottom: 14px; }
 .quiz-progreso { display: flex; gap: 6px; justify-content: center; margin-bottom: 16px; }
@@ -174,7 +174,7 @@ h1, h2, h3 { margin: 0; }
 }
 .quiz-opciones button:hover { border-color: var(--bordo); transform: translateX(4px); }
 .quiz-resultado .aro { width: 200px; margin: 0 auto 16px; border-color: var(--celeste); animation: pop .5s cubic-bezier(.2,1.6,.4,1); }
-.quiz-resultado h3 { font-size: 2.4rem; margin-bottom: 6px; }
+.quiz-resultado h3 { font-size: 3rem; margin-bottom: 6px; }
 .quiz-resultado p { margin: 0 0 18px; }
 .quiz-resultado .acciones { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .btn-link { background: none; border: none; color: var(--bordo); font-weight: 700; text-decoration: underline; }
@@ -184,32 +184,21 @@ h1, h2, h3 { margin: 0; }
 .como { background: var(--celeste); padding: 48px 20px; }
 .como > * { max-width: 620px; margin-left: auto; margin-right: auto; }
 .como > .pill { display: flex; width: max-content; margin-left: max(0px, calc((100% - 620px) / 2)); }
-.como h2 { font-size: clamp(2.4rem, 10vw, 3.6rem); margin: 14px auto 24px; }
+.como h2 { font-size: clamp(3rem, 13vw, 4.4rem); margin: 14px auto 24px; }
 .pasos { list-style: none; padding: 0; counter-reset: paso; display: grid; gap: 16px; }
 .pasos li { counter-increment: paso; display: flex; align-items: center; gap: 16px; font-size: 1.05rem; }
 .pasos li::before {
   content: counter(paso); flex: none; width: 54px; height: 54px; border-radius: 50%; background: var(--bordo);
-  color: var(--crema); display: grid; place-items: center; font-family: var(--display); font-weight: 900; font-size: 1.4rem;
+  color: var(--crema); display: grid; place-items: center; font-family: var(--display); font-weight: 400; font-size: 1.7rem;
   font-variation-settings: "SOFT" 100;
 }
-.pasos b { font-family: var(--display); color: var(--bordo); font-size: 1.2rem; font-variation-settings: "SOFT" 100; }
-
-/* ===== Historia ===== */
-.historia { background: var(--crema); padding: 40px 20px 50px; }
-.historia > * { max-width: 620px; margin-left: auto; margin-right: auto; }
-.historia > .pill { display: flex; width: max-content; margin-left: max(0px, calc((100% - 620px) / 2)); }
-.historia-fotos { position: relative; height: 300px; margin-bottom: 20px; }
-.historia-fotos .grande { position: absolute; right: -10px; top: 0; width: 260px; }
-.historia-fotos .chica { position: absolute; left: 10px; bottom: 0; width: 130px; border-width: 8px; }
-.historia h2 { font-size: clamp(2.4rem, 10vw, 3.4rem); margin: 14px auto 18px; }
-.historia p { line-height: 1.6; font-size: 1.05rem; }
-.firma { font-size: 1.6rem; margin-top: 26px; color: #6b3b2b; }
+.pasos b { font-family: var(--display); font-weight: 400; color: var(--bordo); font-size: 1.5rem; font-variation-settings: "SOFT" 100; }
 
 /* ===== Pie ===== */
 .pie { background: var(--bordo); color: var(--crema); padding: 44px 20px 120px; }
 .pie > * { max-width: 620px; margin-left: auto; margin-right: auto; }
 .pie .logo { width: 160px; border-radius: 14px; margin: 0 0 22px; }
-.pie h2 { color: var(--crema); font-size: clamp(2.2rem, 9vw, 3.2rem); margin-bottom: 14px; }
+.pie h2 { color: var(--crema); font-size: clamp(2.8rem, 12vw, 4rem); margin-bottom: 14px; }
 .pie-links { display: flex; flex-direction: column; align-items: flex-start; gap: 10px; margin: 22px auto; }
 .chiquito { font-size: .85rem; opacity: .85; }
 .centro { text-align: center; }
@@ -261,7 +250,7 @@ h1, h2, h3 { margin: 0; }
 .hp-foto { width: min(70%, 280px); margin: 0 auto 16px; border-color: var(--celeste); }
 .hp-collage { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 16px; }
 .hp-collage .aro { width: 76px; border: 5px solid var(--celeste); }
-.hp-nombre { font-size: 2.4rem; margin: 10px 0 8px; }
+.hp-nombre { font-size: 3rem; margin: 10px 0 8px; }
 .hp-desc { margin: 0 0 14px; line-height: 1.5; }
 .hp-nota { font-size: .88rem; font-weight: 700; color: var(--texto-suave); margin: 0 0 14px; }
 .sabores { display: grid; gap: 10px; margin: 0 0 16px; }
@@ -276,7 +265,7 @@ h1, h2, h3 { margin: 0; }
   border: 2px solid var(--crema); background: #fff; border-radius: 18px; padding: 14px 18px; font-weight: 600;
   transition: border-color .15s, background .15s;
 }
-.opcion b { font-family: var(--display); color: var(--bordo); font-size: 1.25rem; font-variation-settings: "SOFT" 100; }
+.opcion b { font-family: var(--display); font-weight: 400; color: var(--bordo); font-size: 1.5rem; font-variation-settings: "SOFT" 100; }
 .opcion[aria-checked="true"] { border-color: var(--bordo); background: var(--crema); }
 .opcion[disabled] { opacity: .6; cursor: not-allowed; }
 .opcion .prox { font-size: .78rem; background: var(--celeste); color: var(--bordo); padding: 4px 10px; border-radius: 999px; font-weight: 700; }
@@ -295,10 +284,10 @@ h1, h2, h3 { margin: 0; }
 .linea .stepper { padding: 3px; }
 .linea .stepper button { width: 30px; height: 30px; font-size: 1rem; }
 .total-fila { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-top: 2px dashed var(--crema); font-weight: 700; }
-.total-fila strong { font-family: var(--display); color: var(--bordo); font-size: 1.8rem; font-variation-settings: "SOFT" 100; }
+.total-fila strong { font-family: var(--display); font-weight: 400; color: var(--bordo); font-size: 2.2rem; font-variation-settings: "SOFT" 100; }
 .aviso { background: var(--celeste); padding: 12px 16px; border-radius: 16px; font-size: .92rem; font-weight: 600; margin: 0 0 20px; }
 form { display: grid; gap: 14px; }
-form h3 { font-size: 1.7rem; }
+form h3 { font-size: 2.1rem; }
 label, legend { display: grid; gap: 6px; font-weight: 700; font-size: .92rem; }
 .opcional { font-weight: 500; color: var(--texto-suave); }
 fieldset { border: none; margin: 0; padding: 0; }
