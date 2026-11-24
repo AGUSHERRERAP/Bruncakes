@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>brün cakes · Pedidos</title>
+  <meta name="description" content="Pedí tu brunch, tortas y dulces de Bruncakes y recibí la confirmación por WhatsApp.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <p class="kicker">Pedidos online</p>
+      <h1 id="titulo">Bruncakes</h1>
+      <p id="eslogan" class="eslogan"></p>
+      <p id="ubicacion" class="ubicacion"></p>
+      <a id="ig" class="ig" target="_blank" rel="noopener">Seguinos en Instagram →</a>
+    </div>
+  </header>
+
+  <main>
+    <nav id="categorias" class="categorias" aria-label="Categorías"></nav>
+    <section id="menu" class="menu"></section>
+
+    <section id="checkout" class="checkout" hidden>
+      <h2>Tu pedido</h2>
+      <ul id="resumen" class="resumen"></ul>
+      <p class="total-linea">Total: <strong id="total-checkout"></strong></p>
+
+      <form id="form">
+        <label>Nombre y apellido
+          <input name="nombre" required autocomplete="name">
+        </label>
+        <label>Teléfono
+          <input name="telefono" type="tel" required autocomplete="tel">
+        </label>
+        <fieldset id="entrega-box">
+          <legend>Entrega</legend>
+          <div id="entrega-opciones" class="opciones"></div>
+        </fieldset>
+        <label id="direccion-box" hidden>Dirección de envío
+          <input name="direccion" autocomplete="street-address">
+        </label>
+        <div class="fila">
+          <label>Fecha
+            <input name="fecha" type="date" required>
+          </label>
+          <label>Horario
+            <input name="hora" type="time">
+          </label>
+        </div>
+        <label>Forma de pago
+          <select name="pago" id="pago"></select>
+        </label>
+        <label>Notas (dedicatoria, alergias, etc.)
+          <textarea name="notas" rows="3"></textarea>
+        </label>
+        <button type="submit" class="btn-whatsapp">Enviar pedido por WhatsApp</button>
+        <button type="button" id="volver" class="btn-link">← Seguir eligiendo</button>
+      </form>
+    </section>
+  </main>
+
+  <div id="barra" class="barra" hidden>
+    <span><strong id="cant"></strong> · <span id="total"></span></span>
+    <button id="ver-pedido">Ver pedido</button>
+  </div>
+
+  <footer class="pie">Hecho con cariño · <span id="pie-nombre"></span></footer>
+
+  <script src="productos.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
